@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary-black: #0a0a0a;
+    --color-secondary-white: #fafaf9;
+  }
+
+  * {
+    @apply antialiased;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-secondary-white text-primary-black;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary-beige;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent-earth rounded-full;
+  }
+}
+
+@layer utilities {
+  /* Text reveal animation wrapper */
+  .line-wrapper {
+    @apply overflow-hidden inline-block;
+  }
+
+  .line-inner {
+    @apply inline-block;
+  }
+
+  /* Image reveal wrapper */
+  .image-reveal {
+    @apply overflow-hidden;
+  }
+
+  .image-reveal img {
+    @apply w-full h-full object-cover;
+  }
+
+  /* Premium hover effects */
+  .hover-scale {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .hover-scale:hover {
+    @apply scale-105;
+  }
+
+  /* Layout utilities */
+  .container-custom {
+    @apply max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20;
+  }
+
+  /* Typography utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+}
