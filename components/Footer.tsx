@@ -54,7 +54,7 @@ export default function Footer() {
               Contact
             </h4>
             <ul className="space-y-3 text-sm font-light leading-relaxed">
-              <li>Al Fazal Palace Marquee , G.T Road , DIna</li>
+              <li>Al Fazal Palace Marquee , G.T Road , Dina</li>
               <li>
                 <a
                   href="https://maps.app.goo.gl/Eh5JVdAtuef5Ymv9A?g_st=aw"
