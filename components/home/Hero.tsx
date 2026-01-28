@@ -64,6 +64,7 @@ export default function Hero() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
             poster="/images/m2.JPG"
+            preload="auto"
           >
             <source src="/videos/hero-video.mp4" type="video/mp4" />
             {/* Fallback image if video doesn't load */}
