@@ -1,38 +1,57 @@
 'use client'
 
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
 import Link from 'next/link'
-import { supabase, type Event } from '@/lib/supabase'
 
 gsap.registerPlugin(ScrollTrigger)
 
+interface Event {
+  id: string
+  title: string
+  description: string
+  category: 'wedding' | 'corporate' | 'cultural' | 'social'
+  image_url: string
+  date: string
+  featured: boolean
+}
+
+const events: Event[] = [
+  {
+    id: '1',
+    title: 'Grand Wedding Ceremony',
+    description: 'A breathtaking union of two families celebrated with traditional elegance and modern sophistication',
+    category: 'wedding',
+    image_url: '/images/Walima.JPG',
+    date: '2024',
+    featured: true,
+  },
+  {
+    id: '2',
+    title: 'Corporate Gala Evening',
+    description: 'An exclusive corporate event featuring keynote speakers, networking opportunities, and elegant dining',
+    category: 'corporate',
+    image_url: '/images/m11.JPG',
+    date: '2024',
+    featured: true,
+  },
+  {
+    id: '3',
+    title: 'Cultural Festival Celebration',
+    description: 'A vibrant celebration of heritage and tradition with music, dance, and authentic cuisine',
+    category: 'cultural',
+    image_url: '/images/m12.JPG',
+    date: '2024',
+    featured: true,
+  },
+]
+
 export default function FeaturedEvents() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [events, setEvents] = useState<Event[]>([])
-
-  useEffect(() => {
-    fetchFeaturedEvents()
-  }, [])
-
-  async function fetchFeaturedEvents() {
-    const { data } = await supabase
-      .from('events')
-      .select('*')
-      .eq('featured', true)
-      .order('created_at', { ascending: false })
-      .limit(3)
-
-    if (data) {
-      setEvents(data)
-    }
-  }
 
   useLayoutEffect(() => {
-    if (events.length === 0) return
-
     const ctx = gsap.context(() => {
       // Section title reveal
       gsap.fromTo(
@@ -85,41 +104,7 @@ export default function FeaturedEvents() {
     }, sectionRef)
 
     return () => ctx.revert()
-  }, [events])
-
-  // Fallback placeholder events if Supabase data is empty
-  const displayEvents = events.length > 0 ? events : [
-    {
-      id: '1',
-      title: 'Grand Wedding Ceremony',
-      description: 'A breathtaking union of two families celebrated with traditional elegance and modern sophistication',
-      category: 'wedding' as const,
-      image_url: '/images/Walima.JPG',
-      date: '2024',
-      featured: true,
-      created_at: new Date().toISOString(),
-    },
-    {
-      id: '2',
-      title: 'Elegant Event Setup',
-      description: 'Distinguished celebrations hosted with premium décor and exceptional attention to detail',
-      category: 'corporate' as const,
-      image_url: '/images/m11.JPG',
-      date: '2024',
-      featured: true,
-      created_at: new Date().toISOString(),
-    },
-    {
-      id: '3',
-      title: 'Memorable Celebration',
-      description: 'A vibrant celebration showcasing our stunning venue and professional event management',
-      category: 'social' as const,
-      image_url: '/images/m13.JPG',
-      date: '2024',
-      featured: true,
-      created_at: new Date().toISOString(),
-    },
-  ]
+  }, [])
 
   return (
     <section ref={sectionRef} className="py-section-lg">
@@ -136,7 +121,7 @@ export default function FeaturedEvents() {
 
         {/* Events Grid */}
         <div className="events-grid grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-          {displayEvents.map((event, index) => (
+          {events.map((event) => (
             <article key={event.id} className="event-card opacity-0 group">
               <Link href={`/gallery`} className="block space-y-6">
                 {/* Image */}

@@ -1,10 +1,9 @@
 'use client'
 
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Link from 'next/link'
-import { supabase, type Service } from '@/lib/supabase'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -16,73 +15,56 @@ const iconMap: Record<string, string> = {
   management: '📋',
 }
 
+interface Service {
+  id: string
+  title: string
+  description: string
+  icon: string
+  order: number
+}
+
+const services: Service[] = [
+  {
+    id: '1',
+    title: 'Wedding Events',
+    description: 'From intimate ceremonies to grand receptions, we create magical moments with personalized décor, elegant staging, and comprehensive wedding planning services.',
+    icon: 'wedding',
+    order: 1,
+  },
+  {
+    id: '2',
+    title: 'Corporate Events',
+    description: 'Professional venue solutions for conferences, seminars, product launches, and corporate galas with modern AV equipment and business-ready facilities.',
+    icon: 'corporate',
+    order: 2,
+  },
+  {
+    id: '3',
+    title: 'Premium Catering',
+    description: 'Exquisite culinary experiences featuring diverse menu options, from traditional feasts to contemporary fusion cuisine, crafted by expert chefs.',
+    icon: 'catering',
+    order: 3,
+  },
+  {
+    id: '4',
+    title: 'Event Décor & Styling',
+    description: 'Transform your vision into reality with custom theme development, floral arrangements, lighting design, and complete venue transformation services.',
+    icon: 'decor',
+    order: 4,
+  },
+  {
+    id: '5',
+    title: 'Event Management',
+    description: 'End-to-end event coordination including timeline management, vendor liaison, on-site supervision, and seamless execution of every detail.',
+    icon: 'management',
+    order: 5,
+  },
+]
+
 export default function ServicesPreview() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [services, setServices] = useState<Service[]>([])
-
-  useEffect(() => {
-    fetchServices()
-  }, [])
-
-  async function fetchServices() {
-    const { data } = await supabase
-      .from('services')
-      .select('*')
-      .order('order', { ascending: true })
-      .limit(5)
-
-    if (data && data.length > 0) {
-      setServices(data)
-    } else {
-      // Fallback services for visualization
-      setServices([
-        {
-          id: '1',
-          title: 'Wedding Events',
-          description: 'From intimate ceremonies to grand receptions, we create magical moments with personalized décor, elegant staging, and comprehensive wedding planning services.',
-          icon: 'wedding',
-          order: 1,
-          created_at: new Date().toISOString(),
-        },
-        {
-          id: '2',
-          title: 'Corporate Events',
-          description: 'Professional venue solutions for conferences, seminars, product launches, and corporate galas with modern AV equipment and business-ready facilities.',
-          icon: 'corporate',
-          order: 2,
-          created_at: new Date().toISOString(),
-        },
-        {
-          id: '3',
-          title: 'Premium Catering',
-          description: 'Exquisite culinary experiences featuring diverse menu options, from traditional feasts to contemporary fusion cuisine, crafted by expert chefs.',
-          icon: 'catering',
-          order: 3,
-          created_at: new Date().toISOString(),
-        },
-        {
-          id: '4',
-          title: 'Event Décor & Styling',
-          description: 'Transform your vision into reality with custom theme development, floral arrangements, lighting design, and complete venue transformation services.',
-          icon: 'decor',
-          order: 4,
-          created_at: new Date().toISOString(),
-        },
-        {
-          id: '5',
-          title: 'Event Management',
-          description: 'End-to-end event coordination including timeline management, vendor liaison, on-site supervision, and seamless execution of every detail.',
-          icon: 'management',
-          order: 5,
-          created_at: new Date().toISOString(),
-        },
-      ])
-    }
-  }
 
   useLayoutEffect(() => {
-    if (services.length === 0) return
-
     const ctx = gsap.context(() => {
       // Title reveal
       gsap.fromTo(
@@ -121,7 +103,7 @@ export default function ServicesPreview() {
     }, sectionRef)
 
     return () => ctx.revert()
-  }, [services])
+  }, [])
 
   return (
     <section ref={sectionRef} className="py-section-lg bg-secondary-beige">
