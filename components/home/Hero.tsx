@@ -50,11 +50,11 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative h-[56.25vw] md:h-auto md:min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative h-[80vh] md:h-screen flex items-center justify-center overflow-hidden pt-20"
     >
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <div ref={imageRef} className="relative w-full h-full md:h-[120vh]">
+        <div ref={imageRef} className="relative w-full h-[90vh] md:h-[120vh]">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-secondary-white/80 z-10" />
           {/* Video Background */}
           <video
@@ -62,7 +62,7 @@ export default function Hero() {
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-contain md:object-cover bg-black"
+            className="absolute inset-0 w-full h-full object-cover"
             poster="/images/m2.JPG"
             preload="auto"
           >

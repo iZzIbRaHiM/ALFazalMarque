@@ -29,8 +29,7 @@ export default function Navigation() {
       setIsMenuOpen(true)
       // Animate menu open
       gsap.to('.menu-overlay', {
-        opacity: 1,
-        pointerEvents: 'all',
+        autoAlpha: 1, // handles opacity + visibility
         duration: 0.4,
         ease: 'power3.out',
       })
@@ -57,8 +56,7 @@ export default function Navigation() {
         onComplete: () => setIsMenuOpen(false),
       })
       gsap.to('.menu-overlay', {
-        opacity: 0,
-        pointerEvents: 'none',
+        autoAlpha: 0,
         duration: 0.3,
         delay: 0.3,
       })
@@ -104,7 +102,7 @@ export default function Navigation() {
           {/* Menu Toggle */}
           <button
             onClick={toggleMenu}
-            className="relative w-12 h-12 flex flex-col items-center justify-center gap-1.5 lg:hidden"
+            className="relative w-12 h-12 flex flex-col items-center justify-center gap-1.5 lg:hidden z-50"
             aria-label="Toggle menu"
           >
             <span
@@ -124,7 +122,7 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div className="menu-overlay fixed inset-0 bg-secondary-beige z-40 opacity-0 pointer-events-none flex items-center justify-center lg:hidden">
+      <div className="menu-overlay fixed inset-0 bg-secondary-beige z-40 opacity-0 invisible flex items-center justify-center lg:hidden">
         <ul className="flex flex-col items-center gap-8">
           {navLinks.map((link, index) => (
             <li key={link.href} className="menu-item opacity-0">
