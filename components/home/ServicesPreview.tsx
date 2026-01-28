@@ -157,12 +157,11 @@ export default function ServicesPreview() {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <Link
-            href="/services"
-            className="inline-block px-10 py-4 border border-primary-black text-sm uppercase tracking-widest font-light transition-all duration-500 hover:bg-primary-black hover:text-secondary-white"
+          <span
+            className="inline-block px-10 py-4 border border-primary-black/40 text-sm uppercase tracking-widest font-light text-primary-black/40 cursor-default"
           >
             Explore All Services
-          </Link>
+          </span>
         </div>
       </div>
     </section>

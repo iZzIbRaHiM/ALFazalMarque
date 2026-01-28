@@ -49,7 +49,7 @@ export default function CallToAction() {
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
             <a
-              href="https://wa.me/923005451991?text=Hi%20I%20found%20your%20website%20and%20I%20am%20interested%20in%20booking%20information"
+              href="https://api.whatsapp.com/send?phone=923005451991&text=Hi%20I%20found%20your%20website%20and%20I%20am%20interested%20in%20booking%20information"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-12 py-5 bg-primary-black text-secondary-white text-sm uppercase tracking-widest font-light transition-all duration-500 hover:bg-primary-gray"
