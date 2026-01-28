@@ -106,7 +106,9 @@ export default function Hero() {
           {/* CTA */}
           <div className="overflow-hidden pt-8">
             <a
-              href="/contact"
+              href="https://wa.me/923005451991?text=Hi%20I%20found%20your%20website%20and%20I%20am%20interested%20in%20booking%20information"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hero-line inline-block px-10 py-4 border border-primary-black text-sm uppercase tracking-widest font-light transition-all duration-500 hover:bg-primary-black hover:text-secondary-white opacity-0"
             >
               Book Your Event

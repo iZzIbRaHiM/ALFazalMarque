@@ -57,7 +57,7 @@ export default function Footer() {
               <li>Main Location</li>
               <li className="text-secondary-warm">Available upon request</li>
               <li className="pt-2">info@alfazalmarquee.com</li>
-              <li>+92 XXX XXXXXXX</li>
+              <li>+92 300 5451991</li>
             </ul>
           </div>
 
