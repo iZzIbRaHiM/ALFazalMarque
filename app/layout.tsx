@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import PageTransition from '@/components/PageTransition'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -33,7 +34,9 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <body className="font-sans">
         <Navigation />
-        <main>{children}</main>
+        <PageTransition>
+          <main>{children}</main>
+        </PageTransition>
         <Footer />
       </body>
     </html>

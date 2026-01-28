@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import TransitionLink from './TransitionLink'
 import { usePathname } from 'next/navigation'
 import gsap from 'gsap'
 
@@ -66,18 +67,15 @@ export default function Navigation() {
     { href: '/', label: 'Home' },
     { href: '/gallery', label: 'Gallery' },
     { href: '/about', label: 'About' },
-    { href: '/services', label: 'Services' },
-    { href: '/contact', label: 'Contact' },
   ]
 
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'bg-secondary-white/90 backdrop-blur-md shadow-sm'
-            : 'bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+          ? 'bg-secondary-white/90 backdrop-blur-md shadow-sm'
+          : 'bg-transparent'
+          }`}
       >
         <div className="container-custom py-6 flex items-center justify-between">
           <Link href="/" className="group">
@@ -90,14 +88,13 @@ export default function Navigation() {
           <ul className="hidden lg:flex items-center gap-12">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link
+                <TransitionLink
                   href={link.href}
-                  className={`text-sm uppercase tracking-wider font-light transition-opacity duration-300 hover:opacity-60 ${
-                    pathname === link.href ? 'opacity-100' : 'opacity-70'
-                  }`}
+                  className={`text-sm uppercase tracking-wider font-light transition-opacity duration-300 hover:opacity-60 ${pathname === link.href ? 'opacity-100' : 'opacity-70'
+                    }`}
                 >
                   {link.label}
-                </Link>
+                </TransitionLink>
               </li>
             ))}
           </ul>
@@ -109,19 +106,16 @@ export default function Navigation() {
             aria-label="Toggle menu"
           >
             <span
-              className={`block w-6 h-px bg-primary-black transition-transform duration-300 ${
-                isMenuOpen ? 'rotate-45 translate-y-2' : ''
-              }`}
+              className={`block w-6 h-px bg-primary-black transition-transform duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''
+                }`}
             />
             <span
-              className={`block w-6 h-px bg-primary-black transition-opacity duration-300 ${
-                isMenuOpen ? 'opacity-0' : 'opacity-100'
-              }`}
+              className={`block w-6 h-px bg-primary-black transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'
+                }`}
             />
             <span
-              className={`block w-6 h-px bg-primary-black transition-transform duration-300 ${
-                isMenuOpen ? '-rotate-45 -translate-y-2' : ''
-              }`}
+              className={`block w-6 h-px bg-primary-black transition-transform duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                }`}
             />
           </button>
         </div>
@@ -133,12 +127,13 @@ export default function Navigation() {
           <ul className="flex flex-col items-center gap-8">
             {navLinks.map((link, index) => (
               <li key={link.href} className="menu-item opacity-0">
-                <Link
+                <TransitionLink
                   href={link.href}
+                  onClick={toggleMenu}
                   className="font-serif text-4xl md:text-5xl font-light tracking-tight transition-opacity duration-300 hover:opacity-60"
                 >
                   {link.label}
-                </Link>
+                </TransitionLink>
               </li>
             ))}
           </ul>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
@@ -30,7 +30,7 @@ export default function FeaturedEvents() {
     }
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (events.length === 0) return
 
     const ctx = gsap.context(() => {
@@ -94,27 +94,27 @@ export default function FeaturedEvents() {
       title: 'Grand Wedding Ceremony',
       description: 'A breathtaking union of two families celebrated with traditional elegance and modern sophistication',
       category: 'wedding' as const,
-      image_url: '/images/event-wedding.jpg',
+      image_url: '/images/Walima.JPG',
       date: '2024',
       featured: true,
       created_at: new Date().toISOString(),
     },
     {
       id: '2',
-      title: 'Annual Corporate Summit',
-      description: 'Distinguished business leaders gathered for an evening of networking and strategic vision-sharing',
+      title: 'Elegant Event Setup',
+      description: 'Distinguished celebrations hosted with premium décor and exceptional attention to detail',
       category: 'corporate' as const,
-      image_url: '/images/event-corporate.jpg',
+      image_url: '/images/m11.JPG',
       date: '2024',
       featured: true,
       created_at: new Date().toISOString(),
     },
     {
       id: '3',
-      title: 'Cultural Heritage Festival',
-      description: 'A vibrant celebration showcasing rich cultural performances and authentic community connections',
+      title: 'Memorable Celebration',
+      description: 'A vibrant celebration showcasing our stunning venue and professional event management',
       category: 'social' as const,
-      image_url: '/images/event-cultural.jpg',
+      image_url: '/images/m13.JPG',
       date: '2024',
       featured: true,
       created_at: new Date().toISOString(),

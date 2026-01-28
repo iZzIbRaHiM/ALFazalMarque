@@ -23,6 +23,14 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link
+                  href="/"
+                  className="text-sm font-light transition-opacity duration-300 hover:opacity-60"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/about"
                   className="text-sm font-light transition-opacity duration-300 hover:opacity-60"
                 >
@@ -31,26 +39,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/services"
-                  className="text-sm font-light transition-opacity duration-300 hover:opacity-60"
-                >
-                  Our Services
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/gallery"
                   className="text-sm font-light transition-opacity duration-300 hover:opacity-60"
                 >
                   Event Gallery
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-sm font-light transition-opacity duration-300 hover:opacity-60"
-                >
-                  Get in Touch
                 </Link>
               </li>
             </ul>
@@ -91,20 +83,6 @@ export default function Footer() {
           <p className="text-xs font-light text-secondary-warm">
             © {currentYear} Al Fazal Marquee. All rights reserved.
           </p>
-          <div className="flex gap-8 text-xs font-light">
-            <Link
-              href="/privacy"
-              className="transition-opacity duration-300 hover:opacity-60"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="transition-opacity duration-300 hover:opacity-60"
-            >
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

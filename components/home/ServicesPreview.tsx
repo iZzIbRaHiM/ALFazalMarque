@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Link from 'next/link'
@@ -80,7 +80,7 @@ export default function ServicesPreview() {
     }
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (services.length === 0) return
 
     const ctx = gsap.context(() => {

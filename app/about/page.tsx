@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
@@ -8,9 +8,9 @@ import Image from 'next/image'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function AboutPage() {
-  const heroRef = useRef<HTMLElement>(null)
+  const pageRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // Hero animation
       gsap.fromTo(
@@ -36,6 +36,83 @@ export default function AboutPage() {
         }
       )
 
+      // Image reveals - animate each image individually
+      const images = gsap.utils.toArray('.about-image')
+      images.forEach((image) => {
+        gsap.fromTo(
+          image as HTMLElement,
+          { opacity: 0, scale: 1.1 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 1.4,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: image as HTMLElement,
+              start: 'top 80%',
+              toggleActions: 'play none none none',
+            },
+          }
+        )
+      })
+
+      // Image parallax
+      const imageContainers = gsap.utils.toArray('.about-image')
+      imageContainers.forEach((container) => {
+        const image = (container as HTMLElement).querySelector('img')
+        if (image) {
+          gsap.to(image, {
+            y: 50,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: container as HTMLElement,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1,
+            },
+          })
+        }
+      })
+
+      // Background image parallax
+      const bgImages = [
+        { trigger: '.story-section', selector: '.story-section .absolute img' },
+        { trigger: '.values-section', selector: '.values-section .absolute img' },
+      ]
+
+      bgImages.forEach(({ trigger, selector }) => {
+        const img = document.querySelector(selector)
+        if (img) {
+          gsap.to(img, {
+            y: 80,
+            ease: 'none',
+            scrollTrigger: {
+              trigger,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1.5,
+            },
+          })
+        }
+      })
+
+      // Unique space section
+      gsap.fromTo(
+        '.unique-space-content',
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.unique-space-section',
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+        }
+      )
+
       // Features
       gsap.fromTo(
         '.feature-item',
@@ -54,31 +131,31 @@ export default function AboutPage() {
         }
       )
 
-      // Image reveals
+      // Values section
       gsap.fromTo(
-        '.about-image',
-        { opacity: 0, scale: 1.1 },
+        '.values-content',
+        { opacity: 0, y: 60 },
         {
           opacity: 1,
-          scale: 1,
-          duration: 1.4,
+          y: 0,
+          duration: 1,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: '.about-image',
+            trigger: '.values-section',
             start: 'top 80%',
             toggleActions: 'play none none none',
           },
         }
       )
-    }, heroRef)
+    }, pageRef)
 
     return () => ctx.revert()
   }, [])
 
   return (
-    <>
+    <div ref={pageRef}>
       {/* Hero Section */}
-      <section ref={heroRef} className="pt-32 pb-20 bg-secondary-beige">
+      <section className="pt-32 pb-20 bg-secondary-beige">
         <div className="container-custom text-center space-y-8">
           <div className="overflow-hidden">
             <h1 className="about-hero-line font-serif text-display-lg font-light opacity-0">
@@ -94,45 +171,85 @@ export default function AboutPage() {
       </section>
 
       {/* Story Section */}
-      <section className="story-section py-section-lg">
-        <div className="container-custom">
+      <section className="story-section py-section-lg relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/m5.JPG"
+            alt="Background"
+            fill
+            className="object-cover opacity-35"
+            sizes="100vw"
+          />
+        </div>
+        <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto space-y-16">
             <div className="story-content space-y-8 opacity-0">
-              <h2 className="font-serif text-display-sm font-light text-center mb-8">
+              <h2 className="font-serif text-display-sm font-light text-center mb-8 text-primary-black">
                 Our Story
               </h2>
-              
-              <p className="text-lg md:text-xl font-light leading-relaxed text-center">
-                Al Fazal Marquee has established itself as a distinguished venue for life&apos;s
-                most significant celebrations. Our journey began with a simple vision: to
-                create a space where memories are crafted with elegance and precision.
+
+              <p className="text-lg md:text-xl font-light leading-relaxed text-center text-primary-black">
+                Al Fazal Marquee is one of the largest indoor venues, located on the main road with excellent accessibility.
+                Capable of hosting up to 1,400 guests, Al Fazal Marquee is perfect for large weddings, promotional launches,
+                dinner and dances, sporting events, conferences, and so much more!
               </p>
 
-              <p className="text-base md:text-lg font-light leading-relaxed text-primary-black/70 text-center">
-                Located in a prime area with excellent accessibility, our venue combines
-                architectural sophistication with functional excellence. We&apos;ve hosted hundreds
-                of events, each unique in its character, yet united by our commitment to
-                impeccable service and attention to detail.
+              <p className="text-base md:text-lg font-light leading-relaxed text-center text-primary-black">
+                Al Fazal Marquee is a destination that will leave your guests talking about your event long after it&apos;s been.
+                Its modern and luxurious interior makes this venue a perfect match for both classic traditions and modern festivities,
+                making it the ideal venue. Al Fazal Marquee prides itself on exclusivity, therefore the dining floor of the venue
+                will be exclusive to you and your guests for the day.
               </p>
 
-              <p className="text-base md:text-lg font-light leading-relaxed text-primary-black/60 text-center">
-                From intimate gatherings to grand celebrations, Al Fazal Marquee provides the
-                perfect backdrop for your special occasions. Our team&apos;s dedication to
-                excellence ensures that every event is executed flawlessly, leaving you free
-                to create lasting memories.
+              <p className="text-base md:text-lg font-light leading-relaxed text-center text-primary-black">
+                With mood lighting available inside, you can customize the ambiance to complement your color scheme.
+                If you&apos;re looking to hire a leading venue, Al Fazal Marquee provides a spectacular setting for an event
+                with quality unbeatable food & services within your entire budget.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Image Break */}
+      {/* First Image */}
       <section className="py-section">
         <div className="container-custom">
-          <div className="about-image relative aspect-[21/9] overflow-hidden bg-secondary-warm opacity-0">
+          <div className="about-image relative aspect-[16/9] overflow-hidden bg-secondary-warm opacity-0">
             <Image
-              src="/images/about-venue.jpg"
-              alt="Al Fazal Marquee Interior"
+              src="/images/m17.JPG"
+              alt="Al Fazal Marquee Grand Hall"
+              fill
+              className="object-cover"
+              sizes="100vw"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Unique Space Section */}
+      <section className="unique-space-section py-section-lg bg-secondary-beige">
+        <div className="container-custom">
+          <div className="unique-space-content max-w-4xl mx-auto text-center space-y-8 opacity-0">
+            <h2 className="font-serif text-display-sm font-light">
+              Flexible & Unique Space
+            </h2>
+            <p className="text-lg md:text-xl font-light leading-relaxed text-primary-black/70">
+              Our unique and flexible space makes it possible for you to choose the décor, layout, and size
+              that best suits your needs. Whether you envision an intimate gathering or a grand celebration,
+              our venue adapts to bring your vision to life.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Second Image */}
+      <section className="py-section">
+        <div className="container-custom">
+          <div className="about-image relative aspect-[16/9] overflow-hidden bg-secondary-warm opacity-0">
+            <Image
+              src="/images/m7.JPG"
+              alt="Al Fazal Marquee Event Setup"
               fill
               className="object-cover"
               sizes="100vw"
@@ -142,7 +259,7 @@ export default function AboutPage() {
       </section>
 
       {/* Features Section */}
-      <section className="features-section py-section-lg bg-secondary-beige">
+      <section className="features-section py-section-lg">
         <div className="container-custom">
           <h2 className="font-serif text-display-sm font-light text-center mb-20">
             What Sets Us Apart
@@ -163,7 +280,7 @@ export default function AboutPage() {
               <h3 className="font-serif text-2xl font-light">Flexible Spaces</h3>
               <p className="text-sm font-light text-primary-black/60 leading-relaxed">
                 Adaptable venue layout that transforms to match your vision, accommodating
-                intimate gatherings to grand celebrations of up to 1,500 guests.
+                intimate gatherings to grand celebrations of up to 1,400 guests.
               </p>
             </div>
 
@@ -171,8 +288,8 @@ export default function AboutPage() {
               <div className="text-5xl mb-4">🎯</div>
               <h3 className="font-serif text-2xl font-light">Expert Team</h3>
               <p className="text-sm font-light text-primary-black/60 leading-relaxed">
-                Experienced professionals dedicated to ensuring seamless execution of every
-                detail, from planning to the final moment of your event.
+                Our professional team is ready to help with your entire event, ensuring seamless
+                execution of every detail from planning to the final moment.
               </p>
             </div>
 
@@ -180,8 +297,8 @@ export default function AboutPage() {
               <div className="text-5xl mb-4">🍽️</div>
               <h3 className="font-serif text-2xl font-light">Premium Catering</h3>
               <p className="text-sm font-light text-primary-black/60 leading-relaxed">
-                Exceptional culinary experiences featuring diverse menu options crafted by
-                skilled chefs using the finest ingredients.
+                Exceptional culinary experiences with quality unbeatable food, featuring diverse
+                menu options crafted by skilled chefs using the finest ingredients.
               </p>
             </div>
 
@@ -189,17 +306,17 @@ export default function AboutPage() {
               <div className="text-5xl mb-4">🎨</div>
               <h3 className="font-serif text-2xl font-light">Custom Décor</h3>
               <p className="text-sm font-light text-primary-black/60 leading-relaxed">
-                Personalized styling and decoration services that bring your unique vision to
-                life with stunning visual impact.
+                Personalized styling and decoration services with mood lighting that brings your
+                unique vision to life with stunning visual impact.
               </p>
             </div>
 
             <div className="feature-item text-center space-y-4 opacity-0">
-              <div className="text-5xl mb-4">🔒</div>
-              <h3 className="font-serif text-2xl font-light">Quality Assurance</h3>
+              <div className="text-5xl mb-4">💎</div>
+              <h3 className="font-serif text-2xl font-light">Exclusive Experience</h3>
               <p className="text-sm font-light text-primary-black/60 leading-relaxed">
-                Unwavering commitment to excellence in every aspect, ensuring your event
-                exceeds expectations and creates lasting memories.
+                The venue is exclusively yours for the day, ensuring privacy and a personalized
+                experience that exceeds expectations and creates lasting memories.
               </p>
             </div>
           </div>
@@ -207,28 +324,34 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-section-lg">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center space-y-12">
-            <h2 className="font-serif text-display-sm font-light">Our Commitment</h2>
-            
-            <p className="text-lg font-light leading-relaxed text-primary-black/70">
+      <section className="values-section py-section-lg relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0 bg-secondary-beige">
+          <Image
+            src="/images/m9.JPG"
+            alt="Background"
+            fill
+            className="object-cover opacity-35"
+            sizes="100vw"
+          />
+        </div>
+        <div className="container-custom relative z-10">
+          <div className="values-content max-w-3xl mx-auto text-center space-y-12 opacity-0">
+            <h2 className="font-serif text-display-sm font-light text-primary-black">Our Commitment</h2>
+
+            <p className="text-lg font-light leading-relaxed text-primary-black">
               At Al Fazal Marquee, we believe that every celebration deserves to be
               extraordinary. Our commitment extends beyond providing a venue—we partner
               with you to create experiences that resonate long after the event concludes.
             </p>
 
-            <div className="pt-8">
-              <a
-                href="/contact"
-                className="inline-block px-12 py-5 bg-primary-black text-secondary-white text-sm uppercase tracking-widest font-light transition-all duration-500 hover:bg-primary-gray"
-              >
-                Plan Your Event
-              </a>
-            </div>
+            <p className="text-base font-light leading-relaxed text-primary-black">
+              If you&apos;d like more information about us, give us a call or email us.
+              Our professional team is ready to help make your event unforgettable.
+            </p>
           </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }

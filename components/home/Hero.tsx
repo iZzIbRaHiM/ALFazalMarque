@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
@@ -11,7 +11,7 @@ export default function Hero() {
   const heroRef = useRef<HTMLElement>(null)
   const imageRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // Initial page load animations
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
@@ -52,15 +52,28 @@ export default function Hero() {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <div ref={imageRef} className="relative w-full h-[120vh]">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-secondary-white/80 z-10" />
+          {/* Video Background */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            poster="/images/m2.JPG"
+          >
+            <source src="/videos/hero-video.mp4" type="video/mp4" />
+            {/* Fallback image if video doesn't load */}
+          </video>
+          {/* Fallback Image */}
           <Image
-            src="/images/hero-marquee.jpg"
+            src="/images/m2.JPG"
             alt="Al Fazal Marquee Interior"
             fill
-            className="object-cover"
+            className="object-cover -z-10"
             priority
             sizes="100vw"
           />

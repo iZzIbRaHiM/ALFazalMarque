@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Link from 'next/link'
@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 export default function CallToAction() {
   const sectionRef = useRef<HTMLElement>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         '.cta-content',
