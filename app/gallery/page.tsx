@@ -9,6 +9,10 @@ gsap.registerPlugin(ScrollTrigger)
 
 // Gallery images from the Images folder
 const galleryImages = [
+  { id: 16, src: '/images/exterior-view-1.jpg', title: 'Exterior View', description: 'Grand facade of Al Fazal Palace Marquee' },
+  { id: 17, src: '/images/exterior-view-2.jpg', title: 'Grand Entrance', description: 'Welcoming entrance for your guests' },
+  { id: 18, src: '/images/exterior-view-3.jpg', title: 'Architectural Beauty', description: 'Stunning exterior architecture' },
+  { id: 19, src: '/images/exterior-view-4.jpg', title: 'Venue Front', description: 'Beautifully designed marquee front' },
   { id: 1, src: '/images/m2.JPG', title: 'Grand Hall Setup', description: 'Our spacious venue ready for celebrations' },
   { id: 2, src: '/images/m4.JPG', title: 'Elegant Decor', description: 'Premium decoration and lighting' },
   { id: 3, src: '/images/Walima.JPG', title: 'Walima Reception', description: 'Beautiful wedding reception setup' },
