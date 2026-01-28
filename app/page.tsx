@@ -12,9 +12,9 @@ export default function HomePage() {
     <>
       <Hero />
       <IntroSection />
-      <ServicesPreview />
       <GallerySection />
       <ReviewsSection />
+      <ServicesPreview />
       <CallToAction />
     </>
   )
