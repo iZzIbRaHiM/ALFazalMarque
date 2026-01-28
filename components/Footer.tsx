@@ -54,7 +54,7 @@ export default function Footer() {
               Contact
             </h4>
             <ul className="space-y-3 text-sm font-light leading-relaxed">
-              <li>Main Location</li>
+              <li>Al Fazal Palace Marquee , G.T Road , DIna</li>
               <li>
                 <a
                   href="https://maps.app.goo.gl/Eh5JVdAtuef5Ymv9A?g_st=aw"
@@ -70,7 +70,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Hours */}
+          {/* Hours & Socials */}
           <div className="space-y-6">
             <h4 className="text-sm uppercase tracking-wider font-light opacity-60">
               Visiting Hours
@@ -78,20 +78,49 @@ export default function Footer() {
             <ul className="space-y-3 text-sm font-light leading-relaxed">
               <li>
                 <span className="block text-secondary-warm">Monday - Sunday</span>
-                <span>10:00 AM - 10:00 PM</span>
+                <span>9:00 AM - 10:00 PM</span>
               </li>
               <li className="pt-2 text-secondary-warm">
                 Appointments recommended
               </li>
             </ul>
-          </div>
-        </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-20 pt-8 border-t border-secondary-warm/20 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs font-light text-secondary-warm">
-            © {currentYear} Al Fazal Palace Marquee. All rights reserved.
-          </p>
+            {/* Social Links */}
+            <div className="pt-4 space-y-3">
+              <h4 className="text-sm uppercase tracking-wider font-light opacity-60">
+                Follow Us
+              </h4>
+              <div className="flex gap-4">
+                <a
+                  href="https://www.instagram.com/al_fazal_palace_marquee?igsh=bjJ3eDIzOWtpZm5q"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl transition-opacity duration-300 hover:opacity-60"
+                  aria-label="Instagram"
+                >
+                  📸
+                </a>
+                <a
+                  href="https://www.facebook.com/share/1EMzjGDB66/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl transition-opacity duration-300 hover:opacity-60"
+                  aria-label="Facebook"
+                >
+                  📘
+                </a>
+                <a
+                  href="https://www.tiktok.com/@alfazalpalacemarquee?_r=1&_t=ZS-93SJ9H7CsIn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl transition-opacity duration-300 hover:opacity-60"
+                  aria-label="TikTok"
+                >
+                  🎵
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
