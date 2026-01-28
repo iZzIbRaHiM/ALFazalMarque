@@ -50,11 +50,11 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative h-[80vh] md:h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <div ref={imageRef} className="relative w-full h-[90vh] md:h-[120vh]">
+        <div ref={imageRef} className="relative w-full h-[120vh]">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-secondary-white/80 z-10" />
           {/* Video Background */}
           <video

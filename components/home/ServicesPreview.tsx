@@ -128,16 +128,16 @@ export default function ServicesPreview() {
               key={service.id}
               className="service-item opacity-0 group border-b border-primary-black/10 last:border-b-0"
             >
-              <Link href="/services" className="block py-8 md:py-10">
+              <div className="block py-8 md:py-10">
                 <div className="flex items-start gap-6 md:gap-12">
                   {/* Icon */}
-                  <div className="text-3xl md:text-4xl flex-shrink-0 transition-transform duration-500 group-hover:scale-110">
+                  <div className="text-3xl md:text-4xl flex-shrink-0 transition-transform duration-500">
                     {iconMap[service.icon] || '•'}
                   </div>
 
                   {/* Content */}
                   <div className="flex-1 space-y-3">
-                    <h3 className="font-serif text-2xl md:text-3xl font-light transition-opacity duration-300 group-hover:opacity-60">
+                    <h3 className="font-serif text-2xl md:text-3xl font-light">
                       {service.title}
                     </h3>
                     <p className="text-sm md:text-base font-light text-primary-black/60 leading-relaxed max-w-3xl">
@@ -145,12 +145,12 @@ export default function ServicesPreview() {
                     </p>
                   </div>
 
-                  {/* Arrow */}
-                  <div className="hidden md:block text-2xl text-primary-black/20 transition-all duration-300 group-hover:text-primary-black group-hover:translate-x-2">
+                  {/* Arrow - Hidden since not clickable */}
+                  {/* <div className="hidden md:block text-2xl text-primary-black/20 transition-all duration-300 group-hover:text-primary-black group-hover:translate-x-2">
                     →
-                  </div>
+                  </div> */}
                 </div>
-              </Link>
+              </div>
             </div>
           ))}
         </div>
