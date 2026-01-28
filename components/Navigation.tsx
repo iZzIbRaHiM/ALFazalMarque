@@ -30,6 +30,7 @@ export default function Navigation() {
       // Animate menu open
       gsap.to('.menu-overlay', {
         opacity: 1,
+        pointerEvents: 'all',
         duration: 0.4,
         ease: 'power3.out',
       })
@@ -57,6 +58,7 @@ export default function Navigation() {
       })
       gsap.to('.menu-overlay', {
         opacity: 0,
+        pointerEvents: 'none',
         duration: 0.3,
         delay: 0.3,
       })
@@ -106,15 +108,15 @@ export default function Navigation() {
             aria-label="Toggle menu"
           >
             <span
-              className={`block w-6 h-px bg-primary-black transition-transform duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''
+              className={`block w-6 h-[2px] bg-primary-black transition-transform duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''
                 }`}
             />
             <span
-              className={`block w-6 h-px bg-primary-black transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'
+              className={`block w-6 h-[2px] bg-primary-black transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'
                 }`}
             />
             <span
-              className={`block w-6 h-px bg-primary-black transition-transform duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+              className={`block w-6 h-[2px] bg-primary-black transition-transform duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''
                 }`}
             />
           </button>
@@ -122,23 +124,21 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      {isMenuOpen && (
-        <div className="menu-overlay fixed inset-0 bg-secondary-beige z-40 opacity-0 flex items-center justify-center lg:hidden">
-          <ul className="flex flex-col items-center gap-8">
-            {navLinks.map((link, index) => (
-              <li key={link.href} className="menu-item opacity-0">
-                <TransitionLink
-                  href={link.href}
-                  onClick={toggleMenu}
-                  className="font-serif text-4xl md:text-5xl font-light tracking-tight transition-opacity duration-300 hover:opacity-60"
-                >
-                  {link.label}
-                </TransitionLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className="menu-overlay fixed inset-0 bg-secondary-beige z-40 opacity-0 pointer-events-none flex items-center justify-center lg:hidden">
+        <ul className="flex flex-col items-center gap-8">
+          {navLinks.map((link, index) => (
+            <li key={link.href} className="menu-item opacity-0">
+              <TransitionLink
+                href={link.href}
+                onClick={toggleMenu}
+                className="font-serif text-4xl md:text-5xl font-light tracking-tight transition-opacity duration-300 hover:opacity-60"
+              >
+                {link.label}
+              </TransitionLink>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   )
 }

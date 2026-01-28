@@ -19,7 +19,7 @@ const galleryImages = [
   { id: 8, src: '/images/m16.JPG', title: 'Event Atmosphere', description: 'Perfect setting for any occasion' },
   { id: 9, src: '/images/m5.JPG', title: 'Premium Setup', description: 'High-quality event arrangements' },
   { id: 10, src: '/images/m8.JPG', title: 'Venue Highlights', description: 'Showcasing our best features' },
-  { id: 11, src: '/images/m9.JPG', title: 'Event Excellence', description: 'Professional event management' },
+  { id: 11, src: '/images/m7.JPG', title: 'Event Excellence', description: 'Professional event management' },
   { id: 12, src: '/images/DSC_3413.JPG', title: 'Special Moments', description: 'Capturing unforgettable memories' },
   { id: 13, src: '/images/DSC_3414.JPG', title: 'Celebration Details', description: 'Every moment matters' },
   { id: 14, src: '/images/DSC_3415.JPG', title: 'Event Photography', description: 'Professional event coverage' },
