@@ -95,7 +95,7 @@ export default function GalleryPage() {
           </div>
           <div className="overflow-hidden">
             <p className="gallery-hero-line text-lg md:text-xl font-light opacity-60 max-w-2xl mx-auto opacity-0">
-              A collection of memorable celebrations and exceptional moments at Al Fazal Marquee
+              A collection of memorable celebrations and exceptional moments at Al Fazal Palace Marquee
             </p>
           </div>
         </div>

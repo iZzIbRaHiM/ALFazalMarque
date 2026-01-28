@@ -44,7 +44,7 @@ export default function CallToAction() {
 
           <p className="text-lg md:text-xl font-light text-primary-black/60 max-w-2xl mx-auto leading-relaxed">
             Whether it&apos;s a grand wedding, a corporate milestone, or an intimate gathering,
-            Al Fazal Marquee provides the perfect canvas for your celebration.
+            Al Fazal Palace Marquee provides the perfect canvas for your celebration.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">

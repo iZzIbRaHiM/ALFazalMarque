@@ -72,7 +72,7 @@ export default function Hero() {
           {/* Fallback Image */}
           <Image
             src="/images/m2.JPG"
-            alt="Al Fazal Marquee Interior"
+            alt="Al Fazal Palace Marquee Interior"
             fill
             className="object-cover -z-10"
             priority
@@ -99,7 +99,7 @@ export default function Hero() {
           {/* Subheadline */}
           <div className="overflow-hidden mt-12">
             <p className="hero-line text-lg md:text-xl font-light tracking-wide opacity-60 opacity-0">
-              Al Fazal Marquee — Premium venue for life&apos;s most extraordinary celebrations
+              Al Fazal Palace Marquee — Premium venue for life&apos;s most extraordinary celebrations
             </p>
           </div>
 

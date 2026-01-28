@@ -20,9 +20,9 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  title: 'Al Fazal Marquee — Premium Wedding & Events Venue',
-  description: 'Experience luxury and elegance at Al Fazal Marquee. Premier wedding and events venue offering world-class facilities, exceptional service, and unforgettable celebrations.',
-  keywords: 'marquee, wedding venue, events, luxury venue, Al Fazal Marquee',
+  title: 'Al Fazal Palace Marquee — Premium Wedding & Events Venue',
+  description: 'Experience luxury and elegance at Al Fazal Palace Marquee. Premier wedding and events venue offering world-class facilities, exceptional service, and unforgettable celebrations.',
+  keywords: 'marquee, wedding venue, events, luxury venue, Al Fazal Palace Marquee',
 }
 
 export default function RootLayout({

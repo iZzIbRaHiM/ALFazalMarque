@@ -80,7 +80,7 @@ export default function Navigation() {
         <div className="container-custom py-6 flex items-center justify-between">
           <Link href="/" className="group">
             <h1 className="font-serif text-2xl md:text-3xl font-light tracking-tight transition-opacity duration-300 group-hover:opacity-60">
-              Al Fazal Marquee
+              Al Fazal Palace Marquee
             </h1>
           </Link>
 

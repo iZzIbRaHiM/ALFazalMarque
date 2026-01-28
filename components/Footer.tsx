@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Brand */}
           <div className="space-y-6">
-            <h3 className="font-serif text-3xl font-light">Al Fazal Marquee</h3>
+            <h3 className="font-serif text-3xl font-light">Al Fazal Palace Marquee</h3>
             <p className="text-sm text-secondary-warm font-light leading-relaxed max-w-xs">
               Creating extraordinary moments in an extraordinary space. Your celebration, our expertise.
             </p>
@@ -55,7 +55,16 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 text-sm font-light leading-relaxed">
               <li>Main Location</li>
-              <li className="text-secondary-warm">Available upon request</li>
+              <li>
+                <a
+                  href="https://maps.app.goo.gl/Eh5JVdAtuef5Ymv9A?g_st=aw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-secondary-warm hover:underline"
+                >
+                  View Location on Map
+                </a>
+              </li>
               <li className="pt-2">info@alfazalmarquee.com</li>
               <li>+92 300 5451991</li>
             </ul>
@@ -81,7 +90,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-20 pt-8 border-t border-secondary-warm/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs font-light text-secondary-warm">
-            © {currentYear} Al Fazal Marquee. All rights reserved.
+            © {currentYear} Al Fazal Palace Marquee. All rights reserved.
           </p>
         </div>
       </div>

@@ -190,21 +190,21 @@ export default function AboutPage() {
               </h2>
 
               <p className="text-lg md:text-xl font-light leading-relaxed text-center text-primary-black">
-                Al Fazal Marquee is one of the largest indoor venues, located on the main road with excellent accessibility.
-                Capable of hosting up to 1,400 guests, Al Fazal Marquee is perfect for large weddings, promotional launches,
-                dinner and dances, sporting events, conferences, and so much more!
+                Al Fazal Palace Marquee is one of the largest indoor venues, located on the main road with excellent accessibility.
+                Capable of hosting up to 2000+ guests, Al Fazal Palace Marquee is perfect for large weddings, promotional launches,
+                dinner, sporting events, conferences, and so much more!
               </p>
 
               <p className="text-base md:text-lg font-light leading-relaxed text-center text-primary-black">
-                Al Fazal Marquee is a destination that will leave your guests talking about your event long after it&apos;s been.
+                Al Fazal Palace Marquee is a destination that will leave your guests talking about your event long after it&apos;s been.
                 Its modern and luxurious interior makes this venue a perfect match for both classic traditions and modern festivities,
-                making it the ideal venue. Al Fazal Marquee prides itself on exclusivity, therefore the dining floor of the venue
+                making it the ideal venue. Al Fazal Palace Marquee prides itself on exclusivity, therefore the dining floor of the venue
                 will be exclusive to you and your guests for the day.
               </p>
 
               <p className="text-base md:text-lg font-light leading-relaxed text-center text-primary-black">
                 With mood lighting available inside, you can customize the ambiance to complement your color scheme.
-                If you&apos;re looking to hire a leading venue, Al Fazal Marquee provides a spectacular setting for an event
+                If you&apos;re looking to hire a leading venue, Al Fazal Palace Marquee provides a spectacular setting for an event
                 with quality unbeatable food & services within your entire budget.
               </p>
             </div>
@@ -218,7 +218,7 @@ export default function AboutPage() {
           <div className="about-image relative aspect-[16/9] overflow-hidden bg-secondary-warm opacity-0">
             <Image
               src="/images/m17.JPG"
-              alt="Al Fazal Marquee Grand Hall"
+              alt="Al Fazal Palace Marquee Grand Hall"
               fill
               className="object-cover"
               sizes="100vw"
@@ -249,7 +249,7 @@ export default function AboutPage() {
           <div className="about-image relative aspect-[16/9] overflow-hidden bg-secondary-warm opacity-0">
             <Image
               src="/images/m7.JPG"
-              alt="Al Fazal Marquee Event Setup"
+              alt="Al Fazal Palace Marquee Event Setup"
               fill
               className="object-cover"
               sizes="100vw"
@@ -280,7 +280,7 @@ export default function AboutPage() {
               <h3 className="font-serif text-2xl font-light">Flexible Spaces</h3>
               <p className="text-sm font-light text-primary-black/60 leading-relaxed">
                 Adaptable venue layout that transforms to match your vision, accommodating
-                intimate gatherings to grand celebrations of up to 1,400 guests.
+                intimate gatherings to grand celebrations of up to 2000+ guests.
               </p>
             </div>
 
@@ -340,7 +340,7 @@ export default function AboutPage() {
             <h2 className="font-serif text-display-sm font-light text-primary-black">Our Commitment</h2>
 
             <p className="text-lg font-light leading-relaxed text-primary-black">
-              At Al Fazal Marquee, we believe that every celebration deserves to be
+              At Al Fazal Palace Marquee, we believe that every celebration deserves to be
               extraordinary. Our commitment extends beyond providing a venue—we partner
               with you to create experiences that resonate long after the event concludes.
             </p>

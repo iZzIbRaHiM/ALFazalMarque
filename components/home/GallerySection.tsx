@@ -71,7 +71,7 @@ export default function GallerySection() {
 
     // Featured gallery images
     const galleryImages = [
-        { id: 1, src: '/images/m2.JPG', alt: 'Al Fazal Marquee Event' },
+        { id: 1, src: '/images/m2.JPG', alt: 'Al Fazal Palace Marquee Event' },
         { id: 2, src: '/images/m4.JPG', alt: 'Wedding Celebration' },
         { id: 3, src: '/images/Walima.JPG', alt: 'Walima Reception' },
         { id: 4, src: '/images/m11.JPG', alt: 'Event Setup' },
