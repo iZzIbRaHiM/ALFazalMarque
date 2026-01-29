@@ -24,7 +24,7 @@ const galleryImages = [
   { id: 13, src: '/images/DSC_3414.JPG', title: 'Celebration Details', description: 'Every moment matters' },
   { id: 14, src: '/images/DSC_3415.JPG', title: 'Event Photography', description: 'Professional event coverage' },
   { id: 15, src: '/images/w3.JPG', title: 'Venue Showcase', description: 'Our beautiful space' },
-  { id: 16, src: '/images/exterior-view-1.jpg', title: 'Exterior View', description: 'Grand facade of Al Fazal Palace Marquee' },
+
   { id: 17, src: '/images/exterior-view-2.jpg', title: 'Grand Entrance', description: 'Welcoming entrance for your guests' },
   { id: 18, src: '/images/exterior-view-3.jpg', title: 'Architectural Beauty', description: 'Stunning exterior architecture' },
   { id: 19, src: '/images/exterior-view-4.jpg', title: 'Venue Front', description: 'Beautifully designed marquee front' },
