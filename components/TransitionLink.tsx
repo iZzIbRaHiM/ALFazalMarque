@@ -23,13 +23,36 @@ export default function TransitionLink({ href, children, className, onClick }: T
             onClick()
         }
 
-        // Handle hash links (anchors on same page)
+        // Handle hash links (/#contact, /#section, etc.)
         if (href.startsWith('/#')) {
             const hash = href.substring(2)
-            const element = document.getElementById(hash)
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' })
+            
+            // If already on homepage, just scroll
+            if (pathname === '/') {
+                const element = document.getElementById(hash)
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' })
+                }
+                return
             }
+            
+            // If on different page, navigate to home with transition, then scroll
+            gsap.to('.page-transition-wrapper', {
+                opacity: 0,
+                y: -20,
+                duration: 0.4,
+                ease: 'power3.in',
+                onComplete: () => {
+                    router.push(href)
+                    // Scroll to element after navigation
+                    setTimeout(() => {
+                        const element = document.getElementById(hash)
+                        if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' })
+                        }
+                    }, 100)
+                },
+            })
             return
         }
 
@@ -37,7 +60,7 @@ export default function TransitionLink({ href, children, className, onClick }: T
         const targetPath = href.split('#')[0]
         const currentPath = pathname
 
-        // If navigating to the same page (even from a hash), skip transition animation
+        // If navigating to the same page, skip transition animation
         if (targetPath === currentPath || (targetPath === '/' && currentPath === '/')) {
             router.push(href)
             // Scroll to top if no hash
