@@ -19,7 +19,7 @@ export default function CallToAction() {
           opacity: 1,
           y: 0,
           duration: 1,
-          ease: 'power3.out',
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 80%',
@@ -33,7 +33,7 @@ export default function CallToAction() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-section-lg">
+    <section id="contact" ref={sectionRef} className="py-section-lg">
       <div className="container-custom">
         <div className="cta-content max-w-4xl mx-auto text-center space-y-12 opacity-0">
           <h2 className="font-serif text-display-md font-light">

@@ -21,7 +21,7 @@ export default function GallerySection() {
                     opacity: 1,
                     y: 0,
                     duration: 1,
-                    ease: 'power3.out',
+                    ease: 'power2.out',
                     scrollTrigger: {
                         trigger: sectionRef.current,
                         start: 'top 80%',
@@ -30,40 +30,25 @@ export default function GallerySection() {
                 }
             )
 
-            // Gallery items staggered reveal
+            // Gallery items staggered reveal - optimized
             gsap.fromTo(
                 '.gallery-preview-item',
-                { opacity: 0, scale: 1.1 },
+                { opacity: 0, y: 30 },
                 {
                     opacity: 1,
-                    scale: 1,
-                    duration: 1,
-                    stagger: 0.1,
-                    ease: 'power3.out',
+                    y: 0,
+                    duration: 0.7,
+                    stagger: 0.08,
+                    ease: 'power2.out',
                     scrollTrigger: {
                         trigger: '.gallery-preview-grid',
-                        start: 'top 70%',
+                        start: 'top 75%',
                         toggleActions: 'play none none none',
                     },
                 }
             )
 
-            // Gallery image parallax
-            gsap.utils.toArray<HTMLElement>('.gallery-preview-item .relative').forEach((container) => {
-                const image = container.querySelector('img')
-                if (image) {
-                    gsap.to(image, {
-                        y: 30,
-                        ease: 'none',
-                        scrollTrigger: {
-                            trigger: container,
-                            start: 'top bottom',
-                            end: 'bottom top',
-                            scrub: 1,
-                        },
-                    })
-                }
-            })
+            // Removed heavy parallax effect for performance
         }, sectionRef)
 
         return () => ctx.revert()
@@ -80,7 +65,7 @@ export default function GallerySection() {
     ]
 
     return (
-        <section ref={sectionRef} className="py-section-lg bg-secondary-beige">
+        <section ref={sectionRef} className="pt-12 pb-20 bg-secondary-beige">
             <div className="container-custom">
                 {/* Section Header */}
                 <div className="gallery-section-title text-center mb-20 opacity-0">
@@ -97,7 +82,7 @@ export default function GallerySection() {
 
                 {/* Gallery Grid */}
                 <div className="gallery-preview-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                    {galleryImages.map((image) => (
+                    {galleryImages.map((image, index) => (
                         <div key={image.id} className="gallery-preview-item opacity-0 group">
                             <Link href="/gallery" className="block">
                                 <div className="relative aspect-[4/3] overflow-hidden bg-secondary-warm">
@@ -105,8 +90,10 @@ export default function GallerySection() {
                                         src={image.src}
                                         alt={image.alt}
                                         fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        loading={index < 3 ? "eager" : "lazy"}
+                                        quality={80}
                                     />
                                 </div>
                             </Link>

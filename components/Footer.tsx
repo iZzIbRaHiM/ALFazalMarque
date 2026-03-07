@@ -45,6 +45,22 @@ export default function Footer() {
                   Event Gallery
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="text-sm font-light transition-opacity duration-300 hover:opacity-60"
+                >
+                  Our Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#contact"
+                  className="text-sm font-light transition-opacity duration-300 hover:opacity-60"
+                >
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
 

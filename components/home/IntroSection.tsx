@@ -19,7 +19,7 @@ export default function IntroSection() {
           opacity: 1,
           y: 0,
           duration: 1,
-          ease: 'power3.out',
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 80%',
@@ -29,19 +29,19 @@ export default function IntroSection() {
         }
       )
 
-      // Stagger the text lines
+      // Stagger the text lines - optimized
       gsap.fromTo(
         '.intro-line',
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 25 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: 'power3.out',
+          duration: 0.6,
+          stagger: 0.12,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 70%',
+            start: 'top 75%',
             toggleActions: 'play none none none',
           },
         }

@@ -39,7 +39,7 @@ export default function GalleryPage() {
       gsap.fromTo(
         '.gallery-hero-line',
         { opacity: 0, y: 100 },
-        { opacity: 1, y: 0, duration: 1.2, stagger: 0.15, ease: 'power3.out' }
+        { opacity: 1, y: 0, duration: 1.2, stagger: 0.15, ease: 'power2.out' }
       )
     }, heroRef)
 

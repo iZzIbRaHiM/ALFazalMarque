@@ -20,7 +20,7 @@ export default function ReviewsSection() {
           opacity: 1,
           y: 0,
           duration: 1,
-          ease: 'power3.out',
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 80%',
@@ -29,20 +29,19 @@ export default function ReviewsSection() {
         }
       )
 
-      // Review cards staggered reveal
+      // Review cards staggered reveal - optimized
       gsap.fromTo(
         '.review-card',
-        { opacity: 0, y: 80, scale: 0.95 },
+        { opacity: 0, y: 40 },
         {
           opacity: 1,
           y: 0,
-          scale: 1,
-          duration: 1,
-          stagger: 0.2,
-          ease: 'power3.out',
+          duration: 0.7,
+          stagger: 0.15,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: '.reviews-grid',
-            start: 'top 70%',
+            start: 'top 75%',
             toggleActions: 'play none none none',
           },
         }
@@ -88,7 +87,7 @@ export default function ReviewsSection() {
 
         {/* Reviews Grid */}
         <div className="reviews-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-          {reviews.map((review) => (
+          {reviews.map((review, index) => (
             <article key={review.id} className="review-card opacity-0 group">
               <div className="relative h-[500px] md:h-[600px] overflow-hidden bg-secondary-beige rounded-lg shadow-lg transition-transform duration-500 group-hover:scale-105">
                 <Image
@@ -97,6 +96,8 @@ export default function ReviewsSection() {
                   fill
                   className="object-contain p-4"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  loading="lazy"
+                  quality={85}
                 />
               </div>
             </article>

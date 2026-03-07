@@ -61,7 +61,7 @@ export default function FeaturedEvents() {
           opacity: 1,
           y: 0,
           duration: 1,
-          ease: 'power3.out',
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 80%',
@@ -70,37 +70,25 @@ export default function FeaturedEvents() {
         }
       )
 
-      // Event cards staggered reveal
+      // Event cards staggered reveal - optimized
       gsap.fromTo(
         '.event-card',
-        { opacity: 0, y: 80 },
+        { opacity: 0, y: 40 },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
-          stagger: 0.2,
-          ease: 'power3.out',
+          duration: 0.7,
+          stagger: 0.12,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: '.events-grid',
-            start: 'top 70%',
+            start: 'top 75%',
             toggleActions: 'play none none none',
           },
         }
       )
 
-      // Image parallax effect
-      gsap.utils.toArray<HTMLElement>('.event-image').forEach((image) => {
-        gsap.to(image, {
-          y: 50,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: image,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1,
-          },
-        })
-      })
+      // Removed heavy parallax for performance
     }, sectionRef)
 
     return () => ctx.revert()
@@ -126,15 +114,15 @@ export default function FeaturedEvents() {
               <Link href={`/gallery`} className="block space-y-6">
                 {/* Image */}
                 <div className="relative aspect-[3/4] overflow-hidden bg-secondary-warm">
-                  <div className="event-image relative w-full h-full">
-                    <Image
-                      src={event.image_url}
-                      alt={event.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                  </div>
+                  <Image
+                    src={event.image_url}
+                    alt={event.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    loading="lazy"
+                    quality={80}
+                  />
                 </div>
 
                 {/* Content */}

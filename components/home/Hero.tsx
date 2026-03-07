@@ -14,7 +14,7 @@ export default function Hero() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // Initial page load animations
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+      const tl = gsap.timeline({ defaults: { ease: 'power2.out' } })
 
       // Animate hero text lines
       tl.fromTo(
@@ -31,15 +31,15 @@ export default function Hero() {
         '-=0.6'
       )
 
-      // Parallax effect on image
+      // Lightweight parallax effect
       gsap.to(imageRef.current, {
-        y: 150,
+        y: 80,
         ease: 'none',
         scrollTrigger: {
           trigger: heroRef.current,
           start: 'top top',
           end: 'bottom top',
-          scrub: 1,
+          scrub: true,
         },
       })
     }, heroRef)
@@ -64,10 +64,9 @@ export default function Hero() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
             poster="/images/m2.JPG"
-            preload="auto"
+            preload="metadata"
           >
             <source src="/videos/hero-video.mp4" type="video/mp4" />
-            {/* Fallback image if video doesn't load */}
           </video>
           {/* Fallback Image */}
           <Image
@@ -77,6 +76,7 @@ export default function Hero() {
             className="object-cover -z-10"
             priority
             sizes="100vw"
+            quality={85}
           />
         </div>
       </div>

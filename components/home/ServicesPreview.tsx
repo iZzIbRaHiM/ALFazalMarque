@@ -8,11 +8,11 @@ import Link from 'next/link'
 gsap.registerPlugin(ScrollTrigger)
 
 const iconMap: Record<string, string> = {
-  wedding: '💍',
-  corporate: '🏢',
-  decor: '✨',
-  catering: '🍽️',
-  management: '📋',
+  wedding: '💐',
+  corporate: '💼',
+  decor: '🎨',
+  catering: '🥘',
+  management: '📊',
 }
 
 interface Service {
@@ -47,17 +47,10 @@ const services: Service[] = [
   },
   {
     id: '4',
-    title: 'Event Décor & Styling',
-    description: 'Transform your vision into reality with custom theme development, floral arrangements, lighting design, and complete venue transformation services.',
-    icon: 'decor',
-    order: 4,
-  },
-  {
-    id: '5',
-    title: 'Event Management',
+    title: 'Full Event Management',
     description: 'End-to-end event coordination including timeline management, vendor liaison, on-site supervision, and seamless execution of every detail.',
     icon: 'management',
-    order: 5,
+    order: 4,
   },
 ]
 
@@ -74,7 +67,7 @@ export default function ServicesPreview() {
           opacity: 1,
           y: 0,
           duration: 1,
-          ease: 'power3.out',
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 80%',
@@ -83,19 +76,19 @@ export default function ServicesPreview() {
         }
       )
 
-      // Service items stagger
+      // Service items stagger - optimized
       gsap.fromTo(
         '.service-item',
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: 'power3.out',
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: '.services-list',
-            start: 'top 70%',
+            start: 'top 75%',
             toggleActions: 'play none none none',
           },
         }
@@ -157,11 +150,12 @@ export default function ServicesPreview() {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <span
-            className="inline-block px-10 py-4 border border-primary-black/40 text-sm uppercase tracking-widest font-light text-primary-black/40 cursor-default"
+          <Link
+            href="/services"
+            className="inline-block px-10 py-4 border border-primary-black text-sm uppercase tracking-widest font-light transition-all duration-500 hover:bg-primary-black hover:text-secondary-white"
           >
             Explore All Services
-          </span>
+          </Link>
         </div>
       </div>
     </section>

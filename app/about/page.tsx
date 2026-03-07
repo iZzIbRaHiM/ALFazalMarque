@@ -16,7 +16,7 @@ export default function AboutPage() {
       gsap.fromTo(
         '.about-hero-line',
         { opacity: 0, y: 100 },
-        { opacity: 1, y: 0, duration: 1.2, stagger: 0.15, ease: 'power3.out' }
+        { opacity: 1, y: 0, duration: 1.2, stagger: 0.15, ease: 'power2.out' }
       )
 
       // Story section
@@ -27,7 +27,7 @@ export default function AboutPage() {
           opacity: 1,
           y: 0,
           duration: 1,
-          ease: 'power3.out',
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: '.story-section',
             start: 'top 80%',
@@ -46,7 +46,7 @@ export default function AboutPage() {
             opacity: 1,
             scale: 1,
             duration: 1.4,
-            ease: 'power3.out',
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: image as HTMLElement,
               start: 'top 80%',
@@ -56,45 +56,7 @@ export default function AboutPage() {
         )
       })
 
-      // Image parallax
-      const imageContainers = gsap.utils.toArray('.about-image')
-      imageContainers.forEach((container) => {
-        const image = (container as HTMLElement).querySelector('img')
-        if (image) {
-          gsap.to(image, {
-            y: 50,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: container as HTMLElement,
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: 1,
-            },
-          })
-        }
-      })
-
-      // Background image parallax
-      const bgImages = [
-        { trigger: '.story-section', selector: '.story-section .absolute img' },
-        { trigger: '.values-section', selector: '.values-section .absolute img' },
-      ]
-
-      bgImages.forEach(({ trigger, selector }) => {
-        const img = document.querySelector(selector)
-        if (img) {
-          gsap.to(img, {
-            y: 80,
-            ease: 'none',
-            scrollTrigger: {
-              trigger,
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: 1.5,
-            },
-          })
-        }
-      })
+      // Parallax effects removed for performance
 
       // Unique space section
       gsap.fromTo(
@@ -104,7 +66,7 @@ export default function AboutPage() {
           opacity: 1,
           y: 0,
           duration: 1,
-          ease: 'power3.out',
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: '.unique-space-section',
             start: 'top 80%',
@@ -122,7 +84,7 @@ export default function AboutPage() {
           y: 0,
           duration: 0.8,
           stagger: 0.2,
-          ease: 'power3.out',
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: '.features-section',
             start: 'top 70%',
@@ -139,7 +101,7 @@ export default function AboutPage() {
           opacity: 1,
           y: 0,
           duration: 1,
-          ease: 'power3.out',
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: '.values-section',
             start: 'top 80%',
@@ -276,7 +238,7 @@ export default function AboutPage() {
             </div>
 
             <div className="feature-item text-center space-y-4 opacity-0">
-              <div className="text-5xl mb-4">✨</div>
+              <div className="text-5xl mb-4">🎪</div>
               <h3 className="font-serif text-2xl font-light">Flexible Spaces</h3>
               <p className="text-sm font-light text-primary-black/60 leading-relaxed">
                 Adaptable venue layout that transforms to match your vision, accommodating
@@ -294,7 +256,7 @@ export default function AboutPage() {
             </div>
 
             <div className="feature-item text-center space-y-4 opacity-0">
-              <div className="text-5xl mb-4">🍽️</div>
+              <div className="text-5xl mb-4">🥘</div>
               <h3 className="font-serif text-2xl font-light">Premium Catering</h3>
               <p className="text-sm font-light text-primary-black/60 leading-relaxed">
                 Exceptional culinary experiences with quality unbeatable food, featuring diverse
