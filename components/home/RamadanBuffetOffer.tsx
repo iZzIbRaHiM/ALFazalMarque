@@ -106,6 +106,18 @@ export default function RamadanBuffetOffer() {
       alt: 'Lavish Iftar buffet at Al Fazal Palace - Best Ramadan deals Dina and Jhelum area' 
     },
     { 
+      src: '/images/ramadan-buffet/New Images/WhatsApp Image 2026-03-08 at 10.15.48 PM.jpeg', 
+      alt: 'Delicious Ramadan buffet spread at Al Fazal Palace Dina - Premium Iftar experience' 
+    },
+    { 
+      src: '/images/ramadan-buffet/New Images/WhatsApp Image 2026-03-08 at 2.53.39 PM.jpeg', 
+      alt: 'Traditional Pakistani Ramadan cuisine at Dina Marquee - Family Iftar buffet near Jhelum' 
+    },
+    { 
+      src: '/images/ramadan-buffet/New Images/WhatsApp Image 2026-03-08 at 2.53.41 PM.jpeg', 
+      alt: 'Exquisite Ramadan feast at Al Fazal Palace - Best buffet deals Jhelum and Sohawa' 
+    },
+    { 
       src: '/images/ramadan-buffet/New Images/WhatsApp Image 2026-03-06 at 8.38.56 PM.jpeg', 
       alt: 'Complete Ramadan buffet spread at Dina event marquee - Serving Sohawa and Mirpur' 
     },
