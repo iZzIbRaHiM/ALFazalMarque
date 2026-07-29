@@ -66,6 +66,7 @@ export default function Navigation() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/gallery', label: 'Gallery' },
+    { href: '/ramadan-buffet', label: 'Ramadan' },
     { href: '/about', label: 'About' },
     { href: '/services', label: 'Services' },
     { href: '/#contact', label: 'Contact' },
