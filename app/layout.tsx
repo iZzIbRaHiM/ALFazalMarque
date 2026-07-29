@@ -2,6 +2,7 @@ import { Inter, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 import type { Metadata } from 'next'
 import Navigation from '@/components/Navigation'
+import CinematicLoader from '@/components/CinematicLoader'
 import Footer from '@/components/Footer'
 import PageTransition from '@/components/PageTransition'
 import StructuredData from '@/components/StructuredData'
@@ -107,6 +108,7 @@ export default function RootLayout({
         <GoogleAnalytics />
       </head>
       <body className="font-sans">
+        <CinematicLoader />
         <Navigation />
         <PageTransition>
           <main>{children}</main>
