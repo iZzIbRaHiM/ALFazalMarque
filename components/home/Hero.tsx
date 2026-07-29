@@ -66,6 +66,7 @@ export default function Hero() {
             poster="/images/m2.JPG"
             preload="metadata"
           >
+            <source src="/videos/hero-video.webm" type="video/webm" />
             <source src="/videos/hero-video.mp4" type="video/mp4" />
           </video>
           {/* Fallback Image */}
